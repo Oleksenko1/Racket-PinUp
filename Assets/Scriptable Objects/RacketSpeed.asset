@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34448736d64a910408e1d6fb06cae010, type: 3}
+  m_Name: RacketSpeed
+  m_EditorClassIdentifier: 
+  shopIcon: {fileID: 21300000, guid: a123a0345c587af459542e189e91c140, type: 3}
+  itemType: 2
+  title: Racket speed
+  description: Increase racket movement speed
+  levelSaveName: RacketSpeedLevel
+  levelsCost: c8000000130100005e010000a9010000
+  levelUpgrades:
+  - 7
+  - 9
+  - 11
+  - 13
+  - 15

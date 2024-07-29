@@ -1,0 +1,65 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &7471101245276202848
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1980509891564990717}
+  - component: {fileID: 4804044790298729434}
+  m_Layer: 0
+  m_Name: GameAssets
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1980509891564990717
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7471101245276202848}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.24918178, y: -1.255839, z: -0.028449636}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4804044790298729434
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7471101245276202848}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fb7f41d1029238841b98d9775b368450, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  basicBall: {fileID: 6120525851246247305, guid: 6b07ea830a7e5b84ea66cdd6898fc6d6, type: 3}
+  coinPopup: {fileID: 7815976817065068405, guid: 229354a48891f404582aba53332b99ca, type: 3}
+  menuMusic: {fileID: 8300000, guid: 9e6bd062653e4734a9b7e7948e881eb6, type: 3}
+  playingMusic: {fileID: 8300000, guid: 23a653371504c8240a57c7c362856f58, type: 3}
+  ballBounce: {fileID: 8300000, guid: 60a9cc470d193c242b04923766020f7d, type: 3}
+  coinCollected: {fileID: 8300000, guid: fc40f6f0a8347ea4f9409db398225e8a, type: 3}
+  racketHit: {fileID: 8300000, guid: 05d9b32bdb9711243ab20d157808e9a5, type: 3}
+  basicButton: {fileID: 8300000, guid: 9a4edadbc47a9bc4f88372ae6fbe10de, type: 3}
+  closeButton: {fileID: 8300000, guid: e7388b6779408c847a7a099a01007078, type: 3}
+  playBtn: {fileID: 8300000, guid: f9400a85e88e2af44a3ec28226a13f40, type: 3}
+  launchBall: {fileID: 8300000, guid: 6a15382f6b8469a478a697d0a389c990, type: 3}
+  decline: {fileID: 8300000, guid: 445e0fe84da1c2649b855723f917e343, type: 3}
+  itemBought: {fileID: 8300000, guid: 8ec96aea8e7d85d4f84ae92298b8215f, type: 3}
+  musicMixer: {fileID: 24100000, guid: 545f22fc800b42c49bfb715bb0d29bbc, type: 2}
+  sfxMixer: {fileID: 24100000, guid: efa683defc3c6ec47add1a56395b6abb, type: 2}
+  uiMixer: {fileID: 24100000, guid: 5d76d62a29bd2a2488167fdac8ce2881, type: 2}
+  racketAccuracy: {fileID: 11400000, guid: 2e6d9665f558427428e6e8ba89d32e4d, type: 2}
+  racketSpeed: {fileID: 11400000, guid: b1dd11dfccd6b0c4d86406701af848d9, type: 2}
+  racketSize: {fileID: 11400000, guid: e1bc350bd40acc743afff0d91f727d29, type: 2}

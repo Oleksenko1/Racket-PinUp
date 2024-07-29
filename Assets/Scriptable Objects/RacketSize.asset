@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34448736d64a910408e1d6fb06cae010, type: 3}
+  m_Name: RacketSize
+  m_EditorClassIdentifier: 
+  shopIcon: {fileID: 21300000, guid: 62b26d82cf975714fa3f3418d60bbe06, type: 3}
+  itemType: 1
+  title: Racket size
+  description: Increase size of your racket
+  levelSaveName: RacketSizeLevel
+  levelsCost: fa0000005e010000c201000026020000
+  levelUpgrades:
+  - 1.25
+  - 1.3
+  - 1.37
+  - 1.44
+  - 1.5
