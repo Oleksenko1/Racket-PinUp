@@ -37,6 +37,7 @@ public class GameAssets : MonoBehaviour
     [SerializeField] public AudioClip launchBall;
     [SerializeField] public AudioClip decline;
     [SerializeField] public AudioClip itemBought;
+    [SerializeField] public AudioClip tabSelected;
 
     [Header("AudioMixers")]
     [SerializeField] public AudioMixer musicMixer;
@@ -47,4 +48,12 @@ public class GameAssets : MonoBehaviour
     [SerializeField] public ShopItemSO racketAccuracy;
     [SerializeField] public ShopItemSO racketSpeed;
     [SerializeField] public ShopItemSO racketSize;
+
+    [Header("Shop")]
+    [SerializeField] public GameObject upgradeItemTemplate;
+    [SerializeField] public GameObject backgroundItemTemplate;
+
+    [Space(15)]
+    [SerializeField] public ShopItemListSO upgradeItemsList;
+    [SerializeField] public ShopItemListSO backgroundItemsList;
 }

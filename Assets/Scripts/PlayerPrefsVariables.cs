@@ -6,6 +6,8 @@ public static class PlayerPrefsVariables
 {
     public enum Vars
     { 
+        SelectedBackGround,
+
         HighestWin,
         TotalCoins,
 

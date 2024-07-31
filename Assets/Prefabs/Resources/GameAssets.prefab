@@ -57,9 +57,14 @@ MonoBehaviour:
   launchBall: {fileID: 8300000, guid: 6a15382f6b8469a478a697d0a389c990, type: 3}
   decline: {fileID: 8300000, guid: 445e0fe84da1c2649b855723f917e343, type: 3}
   itemBought: {fileID: 8300000, guid: 8ec96aea8e7d85d4f84ae92298b8215f, type: 3}
+  tabSelected: {fileID: 8300000, guid: d5664bdf4a34ab444867c578049aafbe, type: 3}
   musicMixer: {fileID: 24100000, guid: 545f22fc800b42c49bfb715bb0d29bbc, type: 2}
   sfxMixer: {fileID: 24100000, guid: efa683defc3c6ec47add1a56395b6abb, type: 2}
   uiMixer: {fileID: 24100000, guid: 5d76d62a29bd2a2488167fdac8ce2881, type: 2}
   racketAccuracy: {fileID: 11400000, guid: 2e6d9665f558427428e6e8ba89d32e4d, type: 2}
   racketSpeed: {fileID: 11400000, guid: b1dd11dfccd6b0c4d86406701af848d9, type: 2}
   racketSize: {fileID: 11400000, guid: e1bc350bd40acc743afff0d91f727d29, type: 2}
+  upgradeItemTemplate: {fileID: 3725033775438149306, guid: 232767dd5f0b7df4bbaddcf03d78da79, type: 3}
+  backgroundItemTemplate: {fileID: 3725033775438149306, guid: d128e7a6d289be7438604d32ad2af4be, type: 3}
+  upgradeItemsList: {fileID: 11400000, guid: 6fb7b3f6f019b894688167bdbf9ef915, type: 2}
+  backgroundItemsList: {fileID: 11400000, guid: 381f94011c199314d82bbd61e0d73268, type: 2}

@@ -10,7 +10,9 @@ public class ShopItemSO : ScriptableObject
     { 
         RacketAccuracy,
         RacketSize,
-        RacketSpeed
+        RacketSpeed,
+        Background,
+        Music
     }
     public Sprite shopIcon;
     public ItemType itemType;

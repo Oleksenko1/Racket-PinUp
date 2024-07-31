@@ -8,10 +8,16 @@ public class ShopManagerScript : MonoBehaviour
 {
     public static ShopManagerScript Instance;
     public TMP_Text coinsUi;
-    public ShopItemSO[] shopItemsSO;
-    public GameObject[] shopPanelsGO;
-    public ShopTemplate[] shopPanels;
-    public Button[] myPurchaseBtns;
+    [Header("Upgrades")]
+    public ShopItemSO[] upgradeShopItemsSO;
+    public GameObject[] upgradeShopPanelsGO;
+    public ShopTemplate[] upgradeShopPanels;
+    public Button[] upgradePurchaseBtns;
+    [Header("Backgrounds")]
+    public ShopItemSO[] bgShopItemsSO;
+    public GameObject[] bgShopPanelsGO;
+    public ShopTemplate[] bgShopPanels;
+    public Button[] bgPurchaseBtns;
 
     private void Awake()
     {
@@ -20,14 +26,14 @@ public class ShopManagerScript : MonoBehaviour
 
     private void Start()
     {
-        for (int i = 0; i < shopItemsSO.Length; i++)
+        for (int i = 0; i < upgradeShopItemsSO.Length; i++)
         {
-            shopPanelsGO[i].SetActive(true);
+            upgradeShopPanelsGO[i].SetActive(true);
         }
         TotalCoinsManager.Instance.OnCoinsChanged += UpdateCoinsAmount;
         UpdateCoinsAmount(TotalCoinsManager.Instance.GetCoinsAmount());
 
-        LoadPanels();
+        LoadUpgradePanels();
 
         gameObject.SetActive(false);
     }
@@ -36,32 +42,32 @@ public class ShopManagerScript : MonoBehaviour
     {
         coinsUi.text = coins.ToString();
     }
-    private void LoadPanels() // Loads panels
+    private void LoadUpgradePanels() // Loads panels
     {
-        for(int i = 0; i < shopItemsSO.Length; i++)
+        for(int i = 0; i < upgradeShopItemsSO.Length; i++)
         {
-            shopPanels[i].titleText.text = shopItemsSO[i].title;
-            shopPanels[i].descriptionTxt.text = shopItemsSO[i].description;
-            shopPanelsGO[i].transform.Find("Icon").GetComponent<Image>().sprite = shopItemsSO[i].shopIcon;
+            upgradeShopPanels[i].titleText.text = upgradeShopItemsSO[i].title;
+            upgradeShopPanels[i].descriptionTxt.text = upgradeShopItemsSO[i].description;
+            upgradeShopPanelsGO[i].transform.Find("Icon").GetComponent<Image>().sprite = upgradeShopItemsSO[i].shopIcon;
 
-            LoadCostAndButton(i);
+            LoadUpgradesCostAndButton(i);
         }
     }
-    private void LoadCostAndButton(int btnNo) // Loads buttons and costs
+    private void LoadUpgradesCostAndButton(int btnNo) // Loads buttons and costs
     {
-        shopPanels[btnNo].currentLvl.text = "Level " + PlayerPrefs.GetInt(shopItemsSO[btnNo].levelSaveName, 0);
-        if (shopItemsSO[btnNo].levelsCost.Length <= PlayerPrefs.GetInt(shopItemsSO[btnNo].levelSaveName, 0)) // If level is maxed - removes ability to upgrade further
+        upgradeShopPanels[btnNo].currentLvl.text = "Level " + PlayerPrefs.GetInt(upgradeShopItemsSO[btnNo].levelSaveName, 0);
+        if (upgradeShopItemsSO[btnNo].levelsCost.Length <= PlayerPrefs.GetInt(upgradeShopItemsSO[btnNo].levelSaveName, 0)) // If level is maxed - removes ability to upgrade further
         {
-            myPurchaseBtns[btnNo].transform.Find("PurchaseBtn txt").GetComponent<TextMeshProUGUI>().text = "Max lvl";
-            myPurchaseBtns[btnNo].interactable = false;
-            shopPanels[btnNo].costTxt.text = "";
+            upgradePurchaseBtns[btnNo].transform.Find("PurchaseBtn txt").GetComponent<TextMeshProUGUI>().text = "Max lvl";
+            upgradePurchaseBtns[btnNo].interactable = false;
+            upgradeShopPanels[btnNo].costTxt.text = "";
             return;
         }
-        shopPanels[btnNo].costTxt.text = shopItemsSO[btnNo].levelsCost[PlayerPrefs.GetInt(shopItemsSO[btnNo].levelSaveName, 0)].ToString();
+        upgradeShopPanels[btnNo].costTxt.text = upgradeShopItemsSO[btnNo].levelsCost[PlayerPrefs.GetInt(upgradeShopItemsSO[btnNo].levelSaveName, 0)].ToString();
     }
     public void PurchaseItem(int btnNo)
     {
-        if(TotalCoinsManager.Instance.DiscardCoins(shopItemsSO[btnNo].levelsCost[PlayerPrefs.GetInt(shopItemsSO[btnNo].levelSaveName, 0)]))
+        if(TotalCoinsManager.Instance.DiscardCoins(upgradeShopItemsSO[btnNo].levelsCost[PlayerPrefs.GetInt(upgradeShopItemsSO[btnNo].levelSaveName, 0)]))
         {
             UnlockItem(btnNo);
             MusicSoundManager.Instance.PlayUI(GameAssets.Instance.itemBought);
@@ -74,23 +80,23 @@ public class ShopManagerScript : MonoBehaviour
     }
     public void UnlockItem(int btnNo)
     {
-        ShopItemSO.ItemType itemType = shopItemsSO[btnNo].itemType;
+        ShopItemSO.ItemType itemType = upgradeShopItemsSO[btnNo].itemType;
 
         switch (itemType)
         {
             case ShopItemSO.ItemType.RacketAccuracy:
-                PlayerPrefs.SetInt(shopItemsSO[btnNo].levelSaveName, PlayerPrefs.GetInt(shopItemsSO[btnNo].levelSaveName, 0) + 1);
+                PlayerPrefs.SetInt(upgradeShopItemsSO[btnNo].levelSaveName, PlayerPrefs.GetInt(upgradeShopItemsSO[btnNo].levelSaveName, 0) + 1);
                 break;
 
             case ShopItemSO.ItemType.RacketSize:
-                PlayerPrefs.SetInt(shopItemsSO[btnNo].levelSaveName, PlayerPrefs.GetInt(shopItemsSO[btnNo].levelSaveName, 0) + 1);
+                PlayerPrefs.SetInt(upgradeShopItemsSO[btnNo].levelSaveName, PlayerPrefs.GetInt(upgradeShopItemsSO[btnNo].levelSaveName, 0) + 1);
                 break;
 
             case ShopItemSO.ItemType.RacketSpeed:
-                PlayerPrefs.SetInt(shopItemsSO[btnNo].levelSaveName, PlayerPrefs.GetInt(shopItemsSO[btnNo].levelSaveName, 0) + 1);
+                PlayerPrefs.SetInt(upgradeShopItemsSO[btnNo].levelSaveName, PlayerPrefs.GetInt(upgradeShopItemsSO[btnNo].levelSaveName, 0) + 1);
                 break;
         }
-        LoadCostAndButton(btnNo);
+        LoadUpgradesCostAndButton(btnNo);
     }
 
     public void OpenShop()
