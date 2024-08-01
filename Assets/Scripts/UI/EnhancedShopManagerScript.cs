@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
+using UnityEngine.Events;
 using UnityEngine.UI;
 using TMPro;
 
@@ -15,14 +17,22 @@ public class EnhancedShopManagerScript : MonoBehaviour
 
     [SerializeField] private Color selectColor;
 
+    public event Action OnShopClose;
+
+    // Contains list of all SO of items
     private List<ShopItemSO> upgradeSO = new List<ShopItemSO>();
     private List<ShopItemSO> bgSO = new List<ShopItemSO>();
     private List<ShopItemSO> musicSO = new List<ShopItemSO>();
 
-
+    // Contains data where items should be placed in the shop
     [SerializeField] private Transform upgradeContentTab;
     [SerializeField] private Transform bgContentTab;
     [SerializeField] private Transform musicContentTab;
+
+    // Sprites for music items in the shop
+    [Space(15)]
+    [SerializeField] private Sprite playSprite;
+    [SerializeField] private Sprite pauseSprite;
 
     private TextMeshProUGUI coinsUI;
 
@@ -34,17 +44,22 @@ public class EnhancedShopManagerScript : MonoBehaviour
     // List of all ShopTemplates of every item in the shop
     private List<ShopTemplate> upgradesShopTemplatesList = new List<ShopTemplate>();
     private List<ShopTemplate> backgroundsShopTemplatesList = new List<ShopTemplate>();
+    private List<ShopTemplate> musicsShopTemplatesList = new List<ShopTemplate>();
 
     private int selectedBG;
+    private int selectedMusic;
 
     private void Awake()
     {
+
         coinsUI = transform.Find("CoinsAmount").GetComponent<TextMeshProUGUI>();
 
         upgradeSO = GameAssets.Instance.upgradeItemsList.list;
         bgSO = GameAssets.Instance.backgroundItemsList.list;
+        musicSO = GameAssets.Instance.musicItemsList.list;
 
         selectedBG = PlayerPrefs.GetInt(PlayerPrefsVariables.Vars.SelectedBackGround.ToString(), 0);
+        selectedMusic = PlayerPrefs.GetInt(PlayerPrefsVariables.Vars.SelectedMusic.ToString(), 0);
     }
 
     private void Start()
@@ -54,6 +69,12 @@ public class EnhancedShopManagerScript : MonoBehaviour
 
         // Loading background items
         InitBackgrounds();
+
+        // Loading music items
+        InitMusics();
+
+        OnShopClose += UpdateMusicItems;
+        UIShopTabs.OnTabChanged += UpdateMusicItems;
 
         TotalCoinsManager.Instance.OnCoinsChanged += UpdateCoinsAmount;
         UpdateCoinsAmount(TotalCoinsManager.Instance.GetCoinsAmount());
@@ -110,6 +131,34 @@ public class EnhancedShopManagerScript : MonoBehaviour
             // FOR MUSIC
             case ItemClass.music:
 
+                for (int x = 0; x < musicsItemsList.Count; x++)
+                {
+                    musicsShopTemplatesList[x].playBtn.transform.Find("image").GetComponent<Image>().sprite = playSprite;
+                    if (musicSO[x].music == MusicSoundManager.Instance.CurrentMusic()) // If item is currently playing
+                    {
+                        musicsShopTemplatesList[x].playBtn.transform.Find("image").GetComponent<Image>().sprite = pauseSprite;
+                    }
+                }
+
+                if (PlayerPrefs.GetInt(musicSO[i].levelSaveName, 0) == 1) // If music is bought
+                {
+                    musicsShopTemplatesList[i].buyBtn.GetComponent<Image>().color = selectColor;
+                    if (selectedMusic == i) // If music is selected
+                    {
+                        musicsShopTemplatesList[i].btnTxt.text = "Selected";
+                        musicsShopTemplatesList[i].costTxt.text = "";
+                        musicsShopTemplatesList[i].buyBtn.interactable = false;
+                    }
+                    else
+                    {
+                        musicsShopTemplatesList[i].btnTxt.text = "Select";
+                        musicsShopTemplatesList[i].costTxt.text = "";
+                        musicsShopTemplatesList[i].buyBtn.interactable = true;
+                    }
+                    break;
+                }
+                musicsShopTemplatesList[i].costTxt.text = musicSO[i].levelsCost[0].ToString();
+
                 break;
         }
     }
@@ -137,18 +186,6 @@ public class EnhancedShopManagerScript : MonoBehaviour
                 LoadCostsAndButtons(ItemClass.upgrade, i);
                 break;
         }
-    }
-
-    public void OpenShop()
-    {
-        MusicSoundManager.Instance.PlayUI(GameAssets.Instance.basicButton);
-        gameObject.SetActive(true);
-        UpdateCoinsAmount(TotalCoinsManager.Instance.GetCoinsAmount());
-    }
-    public void CloseShop()
-    {
-        MusicSoundManager.Instance.PlayUI(GameAssets.Instance.closeButton);
-        gameObject.SetActive(false);
     }
 
     private void InitUpgrades() // Initializing upgrade items in the shop
@@ -212,7 +249,7 @@ public class EnhancedShopManagerScript : MonoBehaviour
                         MusicSoundManager.Instance.PlayUI(GameAssets.Instance.itemBought);
                         PlayerPrefs.SetInt(bgSO[index].levelSaveName, 1);
 
-                        LoadCostsAndButtons(ItemClass.background, index);
+                        ChooseBG(index);
                     }
                     else
                     {
@@ -222,12 +259,7 @@ public class EnhancedShopManagerScript : MonoBehaviour
                 }
                 else // If background is bought and not selected. On click this bg will be selected
                 {
-                    selectedBG = index;
-                    PlayerPrefs.SetInt(PlayerPrefsVariables.Vars.SelectedBackGround.ToString(), index);
-                    for(int x = 0; x < bgSO.Count; x++)
-                    {
-                        LoadCostsAndButtons(ItemClass.background, x);
-                    }
+                    ChooseBG(index);
                     MusicSoundManager.Instance.PlayUI(GameAssets.Instance.basicButton);
                 }
             });
@@ -236,5 +268,112 @@ public class EnhancedShopManagerScript : MonoBehaviour
 
             LoadCostsAndButtons(ItemClass.background, i);
         }
+    }
+    private void InitMusics()
+    {
+        GameObject musicItemTemplateGO = GameAssets.Instance.musicItemTemplate;
+        for (int i = 0; i < musicSO.Count; i++)
+        {
+            GameObject item = Instantiate(musicItemTemplateGO, musicContentTab);
+            ShopTemplate itemInfo = item.GetComponent<ShopTemplate>();
+            itemInfo.titleText.text = musicSO[i].title;
+            itemInfo.itemIndex = i;
+
+            if (musicSO[i].levelsCost[0] == 0) // Unlocks item if it's free
+            {
+                PlayerPrefs.SetInt(musicSO[i].levelSaveName, 1);
+            }
+
+            // Buy button
+            itemInfo.buyBtn.onClick.AddListener(() =>
+            {
+                int index = itemInfo.itemIndex;
+                Debug.Log("Index is: " + index);
+                if (PlayerPrefs.GetInt(musicSO[index].levelSaveName, 0) == 0) // If music is not bought - act as 'Buy' button
+                {
+                    if (TotalCoinsManager.Instance.DiscardCoins(musicSO[index].levelsCost[0])) // If enough money - buy this item
+                    {
+                        MusicSoundManager.Instance.PlayUI(GameAssets.Instance.itemBought);
+                        PlayerPrefs.SetInt(musicSO[index].levelSaveName, 1);
+
+                        ChooseMusic(index);
+                    }
+                    else
+                    {
+                        MusicSoundManager.Instance.PlayUI(GameAssets.Instance.decline);
+                        NotEnoughCoinsPopup.Instance.OpenMessageBox();
+                    }
+                }
+                else // If music is bought and not selected. On click this music will be selected
+                {
+                    ChooseMusic(index);
+                    MusicSoundManager.Instance.PlayUI(GameAssets.Instance.basicButton);
+                }
+            });
+
+
+            // Play music button
+            itemInfo.playBtn.onClick.AddListener(() =>
+            {
+                int index = itemInfo.itemIndex;
+                if (MusicSoundManager.Instance.CurrentMusic() != musicSO[index].music) // If this music is not playing currently
+                {
+                    MusicSoundManager.Instance.PlayMusic(musicSO[index].music);
+                    LoadCostsAndButtons(ItemClass.music, index);
+                }
+                else
+                {
+                    itemInfo.playBtn.transform.Find("image").GetComponent<Image>().sprite = playSprite;
+                    MusicSoundManager.Instance.PlayMusic(GameAssets.Instance.menuMusic);
+                }
+            });
+
+
+            musicsItemsList.Add(item);
+            musicsShopTemplatesList.Add(itemInfo);
+
+            LoadCostsAndButtons(ItemClass.music, i);
+        }
+    }
+    private void UpdateMusicItems()
+    {
+        if (MusicSoundManager.Instance.CurrentMusic() != GameAssets.Instance.menuMusic) // Plays menu music when closed, and turns off every other music in the shop
+        {
+            MusicSoundManager.Instance.PlayMusic(GameAssets.Instance.menuMusic);
+        }
+        foreach (ShopTemplate so in musicsShopTemplatesList) // Sets every item to have play icon
+        {
+            so.playBtn.transform.Find("image").GetComponent<Image>().sprite = playSprite;
+        }
+    }
+    private void ChooseBG(int index)
+    {
+        selectedBG = index;
+        PlayerPrefs.SetInt(PlayerPrefsVariables.Vars.SelectedBackGround.ToString(), index);
+        for (int x = 0; x < bgSO.Count; x++)
+        {
+            LoadCostsAndButtons(ItemClass.background, x);
+        }
+    }
+    private void ChooseMusic(int index)
+    {
+        selectedMusic = index;
+        PlayerPrefs.SetInt(PlayerPrefsVariables.Vars.SelectedMusic.ToString(), index);
+        for (int x = 0; x < musicSO.Count; x++)
+        {
+            LoadCostsAndButtons(ItemClass.music, x);
+        }
+    }
+    public void OpenShop()
+    {
+        MusicSoundManager.Instance.PlayUI(GameAssets.Instance.basicButton);
+        gameObject.SetActive(true);
+        UpdateCoinsAmount(TotalCoinsManager.Instance.GetCoinsAmount());
+    }
+    public void CloseShop()
+    {
+        MusicSoundManager.Instance.PlayUI(GameAssets.Instance.closeButton);
+        OnShopClose?.Invoke();
+        gameObject.SetActive(false);
     }
 }

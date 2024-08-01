@@ -1,4 +1,4 @@
-using System.Collections;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -9,7 +9,10 @@ public class UIShopTabs : MonoBehaviour
     [Tooltip("0 - Upgrades, 1 - Background, 2 - Music")]
     [SerializeField] private List<GameObject> shopPages;
 
+    public static Action OnTabChanged;
+
     private List<Button> tabButtons = new List<Button>();
+    private int selectedTab = 0;
     private void Awake()
     {
         Button btn = transform.Find("upgradeBtn").GetComponent<Button>();
@@ -17,6 +20,11 @@ public class UIShopTabs : MonoBehaviour
         btn.onClick.AddListener(() =>
         {
             TabSelected(0, true);
+            if(selectedTab != 0)
+            {
+                selectedTab = 0;
+                OnTabChanged?.Invoke();
+            }
         });
 
         btn = transform.Find("bgBtn").GetComponent<Button>();
@@ -24,6 +32,11 @@ public class UIShopTabs : MonoBehaviour
         btn.onClick.AddListener(() =>
         {
             TabSelected(1, true);
+            if (selectedTab != 1)
+            {
+                selectedTab = 1;
+                OnTabChanged?.Invoke();
+            }
         });
 
         btn = transform.Find("musicBtn").GetComponent<Button>();
@@ -31,6 +44,11 @@ public class UIShopTabs : MonoBehaviour
         btn.onClick.AddListener(() =>
         {
             TabSelected(2,true);
+            if (selectedTab != 2)
+            {
+                selectedTab = 2;
+                OnTabChanged?.Invoke();
+            }
         });
     }
     private void Start()

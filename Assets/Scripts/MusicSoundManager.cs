@@ -65,7 +65,7 @@ public class MusicSoundManager : MonoBehaviour
         switch (GameSceneManager.GetCurrentScene())
         {
             case GameSceneManager.Scene.GameScene:
-                currentMusic = GameAssets.Instance.playingMusic;
+                currentMusic = GameAssets.Instance.musicItemsList.list[PlayerPrefs.GetInt(PlayerPrefsVariables.Vars.SelectedMusic.ToString(), 0)].music;
                 break;
 
             case GameSceneManager.Scene.MainMenuScene:
@@ -105,6 +105,10 @@ public class MusicSoundManager : MonoBehaviour
                 PlayerPrefs.SetFloat(PlayerPrefsVariables.Vars.UIVolumeFloat.ToString(), value);
                 break;
         }  
+    }
+    public AudioClip CurrentMusic()
+    {
+        return musicSource.clip;
     }
     public void ToggleMusic(bool toggleMusic)
     {

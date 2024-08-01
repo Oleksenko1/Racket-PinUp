@@ -2365,6 +2365,8 @@ MonoBehaviour:
   upgradeContentTab: {fileID: 1204932637}
   bgContentTab: {fileID: 1766227972}
   musicContentTab: {fileID: 97528324}
+  playSprite: {fileID: 21300000, guid: 5c77629baa9be35449fa9825a337f64f, type: 3}
+  pauseSprite: {fileID: 21300000, guid: 129c0a023e072d74e8a3bce5b387a880, type: 3}
 --- !u!1 &618871785
 GameObject:
   m_ObjectHideFlags: 0

@@ -5,7 +5,7 @@ using UnityEngine.Audio;
 
 public class GameAssets : MonoBehaviour
 {
-    public static GameAssets instance;
+    private static GameAssets instance;
     public static GameAssets Instance
     {
         get
@@ -52,8 +52,10 @@ public class GameAssets : MonoBehaviour
     [Header("Shop")]
     [SerializeField] public GameObject upgradeItemTemplate;
     [SerializeField] public GameObject backgroundItemTemplate;
+    [SerializeField] public GameObject musicItemTemplate;
 
     [Space(15)]
     [SerializeField] public ShopItemListSO upgradeItemsList;
     [SerializeField] public ShopItemListSO backgroundItemsList;
+    [SerializeField] public ShopItemListSO musicItemsList;
 }

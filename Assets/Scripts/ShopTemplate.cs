@@ -8,6 +8,8 @@ public class ShopTemplate : MonoBehaviour
 {
     public int itemIndex;
     public Button buyBtn;
+    public Button playBtn;
+    public Sprite sprite;
     public TMP_Text titleText;
     public TMP_Text descriptionTxt;
     public TMP_Text costTxt;

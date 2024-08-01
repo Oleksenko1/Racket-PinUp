@@ -23,4 +23,7 @@ public class ShopItemSO : ScriptableObject
     public int[] levelsCost;
     [Tooltip("Element 0 stores basic stat of racket with out upgrades")]
     public float[] levelUpgrades;
+
+    [Space(15)]
+    public AudioClip music;
 }

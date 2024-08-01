@@ -7,6 +7,7 @@ public static class PlayerPrefsVariables
     public enum Vars
     { 
         SelectedBackGround,
+        SelectedMusic,
 
         HighestWin,
         TotalCoins,
