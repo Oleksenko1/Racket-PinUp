@@ -11,6 +11,7 @@ public class ShopItemSO : ScriptableObject
         RacketAccuracy,
         RacketSize,
         RacketSpeed,
+        WallUpgrade,
         Background,
         Music
     }

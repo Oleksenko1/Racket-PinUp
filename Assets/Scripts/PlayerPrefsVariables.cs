@@ -15,7 +15,8 @@ public static class PlayerPrefsVariables
         MusicVolumeFloat,
         musicPlayIsOn,
         SoundsVolumeFloat,
-        UIVolumeFloat
+        UIVolumeFloat,
+        LastGiftTime
     }
 
 }

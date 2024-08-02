@@ -162,30 +162,41 @@ public class EnhancedShopManagerScript : MonoBehaviour
                 break;
         }
     }
-    public void UnlockItem(int i)
+    public void UpgradeItem(int i)
     {
-        ShopItemSO.ItemType itemType = upgradeSO[i].itemType;
+        //ShopItemSO.ItemType itemType = upgradeSO[i].itemType;
 
-        switch (itemType)
-        {
-            case ShopItemSO.ItemType.RacketAccuracy:
-                PlayerPrefs.SetInt(upgradeSO[i].levelSaveName, PlayerPrefs.GetInt(upgradeSO[i].levelSaveName, 0) + 1);
 
-                LoadCostsAndButtons(ItemClass.upgrade, i);
-                break;
+        PlayerPrefs.SetInt(upgradeSO[i].levelSaveName, PlayerPrefs.GetInt(upgradeSO[i].levelSaveName, 0) + 1);
 
-            case ShopItemSO.ItemType.RacketSize:
-                PlayerPrefs.SetInt(upgradeSO[i].levelSaveName, PlayerPrefs.GetInt(upgradeSO[i].levelSaveName, 0) + 1);
+        LoadCostsAndButtons(ItemClass.upgrade, i);
+        
+        //switch (itemType)
+        //{
+        //    case ShopItemSO.ItemType.RacketAccuracy:
+        //        PlayerPrefs.SetInt(upgradeSO[i].levelSaveName, PlayerPrefs.GetInt(upgradeSO[i].levelSaveName, 0) + 1);
 
-                LoadCostsAndButtons(ItemClass.upgrade, i);
-                break;
+        //        LoadCostsAndButtons(ItemClass.upgrade, i);
+        //        break;
 
-            case ShopItemSO.ItemType.RacketSpeed:
-                PlayerPrefs.SetInt(upgradeSO[i].levelSaveName, PlayerPrefs.GetInt(upgradeSO[i].levelSaveName, 0) + 1);
+        //    case ShopItemSO.ItemType.RacketSize:
+        //        PlayerPrefs.SetInt(upgradeSO[i].levelSaveName, PlayerPrefs.GetInt(upgradeSO[i].levelSaveName, 0) + 1);
 
-                LoadCostsAndButtons(ItemClass.upgrade, i);
-                break;
-        }
+        //        LoadCostsAndButtons(ItemClass.upgrade, i);
+        //        break;
+
+        //    case ShopItemSO.ItemType.RacketSpeed:
+        //        PlayerPrefs.SetInt(upgradeSO[i].levelSaveName, PlayerPrefs.GetInt(upgradeSO[i].levelSaveName, 0) + 1);
+
+        //        LoadCostsAndButtons(ItemClass.upgrade, i);
+        //        break;
+
+        //    case ShopItemSO.ItemType.WallUpgrade:
+        //        PlayerPrefs.SetInt(upgradeSO[i].levelSaveName, PlayerPrefs.GetInt(upgradeSO[i].levelSaveName, 0) + 1);
+
+        //        LoadCostsAndButtons(ItemClass.upgrade, i);
+        //        break;
+        //}
     }
 
     private void InitUpgrades() // Initializing upgrade items in the shop
@@ -206,7 +217,7 @@ public class EnhancedShopManagerScript : MonoBehaviour
                 Debug.Log("Index is: " + index);
                 if (TotalCoinsManager.Instance.DiscardCoins(upgradeSO[index].levelsCost[PlayerPrefs.GetInt(upgradeSO[index].levelSaveName, 0)]))
                 {
-                    UnlockItem(index);
+                    UpgradeItem(index);
                     MusicSoundManager.Instance.PlayUI(GameAssets.Instance.itemBought);
                 }
                 else

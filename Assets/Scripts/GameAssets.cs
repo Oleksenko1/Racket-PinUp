@@ -44,10 +44,11 @@ public class GameAssets : MonoBehaviour
     [SerializeField] public AudioMixer sfxMixer;
     [SerializeField] public AudioMixer uiMixer;
 
-    [Header("RacketStats")]
+    [Header("UpgradeStats")]
     [SerializeField] public ShopItemSO racketAccuracy;
     [SerializeField] public ShopItemSO racketSpeed;
     [SerializeField] public ShopItemSO racketSize;
+    [SerializeField] public ShopItemSO wallsUnlocked;
 
     [Header("Shop")]
     [SerializeField] public GameObject upgradeItemTemplate;
