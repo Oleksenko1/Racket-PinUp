@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 34448736d64a910408e1d6fb06cae010, type: 3}
-  m_Name: FatalStrikeMusic
+  m_Name: SummerMusic
   m_EditorClassIdentifier: 
   shopIcon: {fileID: 0}
   itemType: 4
-  title: Fatal Strike
+  title: Summer dream
   description: 
-  levelSaveName: music3
+  levelSaveName: summerMusic
   levelsCost: fa000000
   levelUpgrades: []
-  music: {fileID: 8300000, guid: 866afc84a2bc46443b563eae7b34b554, type: 3}
+  music: {fileID: 8300000, guid: 9e4bb83f44ae5264da0bc50144774c2e, type: 3}

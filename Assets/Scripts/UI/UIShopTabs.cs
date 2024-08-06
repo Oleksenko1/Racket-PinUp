@@ -2,12 +2,21 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 public class UIShopTabs : MonoBehaviour
 {
     [SerializeField] private Color selectedColor;
     [SerializeField] private Color deselectedColor;
     [Tooltip("0 - Upgrades, 1 - Background, 2 - Music")]
     [SerializeField] private List<GameObject> shopPages;
+    [SerializeField] private TextMeshProUGUI description;
+    [Space(15)]
+    [SerializeField]
+    [TextArea] private string upgradeDesc;
+    [SerializeField]
+    [TextArea] private string bgDesc;
+    [SerializeField]
+    [TextArea] private string musicDesc;
 
     public static Action OnTabChanged;
 
@@ -24,6 +33,7 @@ public class UIShopTabs : MonoBehaviour
             {
                 selectedTab = 0;
                 OnTabChanged?.Invoke();
+                description.SetText(upgradeDesc);
             }
         });
 
@@ -36,6 +46,7 @@ public class UIShopTabs : MonoBehaviour
             {
                 selectedTab = 1;
                 OnTabChanged?.Invoke();
+                description.SetText(bgDesc);
             }
         });
 
@@ -48,12 +59,14 @@ public class UIShopTabs : MonoBehaviour
             {
                 selectedTab = 2;
                 OnTabChanged?.Invoke();
+                description.SetText(musicDesc);
             }
         });
     }
     private void Start()
     {
         TabSelected(0, false);
+        description.SetText(upgradeDesc);
     }
     private void TabSelected(int i, bool playSound)
     {

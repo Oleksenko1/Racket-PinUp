@@ -29,6 +29,7 @@ public class GameOverManager : MonoBehaviour
             isGameOver = true;
             OnGameOver?.Invoke();
             Debug.Log("Game over");
+            MusicSoundManager.Instance.FadeOutMusic();
         }
     } 
     public bool GetGameOver()

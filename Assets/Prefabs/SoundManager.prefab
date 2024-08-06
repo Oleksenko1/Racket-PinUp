@@ -431,3 +431,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef81f77af879bf949a1791e50c7cbbb1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  silentMusicSnapshot: {fileID: -8171286071244388899, guid: 545f22fc800b42c49bfb715bb0d29bbc, type: 2}
+  fullMusicSnapshot: {fileID: -7511892403590364356, guid: 545f22fc800b42c49bfb715bb0d29bbc, type: 2}

@@ -20,15 +20,19 @@ public class GameAssets : MonoBehaviour
 
     [SerializeField] public Transform basicBall;
     [SerializeField] public Transform coinPopup;
+    [SerializeField] public Transform hitParticle;
 
     [Header("Musics")]
     [SerializeField] public AudioClip menuMusic;
     [SerializeField] public AudioClip playingMusic;
+    [SerializeField] public AudioClip victoryMusic;
+    [SerializeField] public AudioClip looseMusic;
 
     [Header("SFX")]
     [SerializeField] public AudioClip ballBounce;
     [SerializeField] public AudioClip coinCollected;
     [SerializeField] public AudioClip racketHit;
+    [SerializeField] public AudioClip ballDie;
 
     [Header("UI")] 
     [SerializeField] public AudioClip basicButton;
@@ -38,6 +42,7 @@ public class GameAssets : MonoBehaviour
     [SerializeField] public AudioClip decline;
     [SerializeField] public AudioClip itemBought;
     [SerializeField] public AudioClip tabSelected;
+    [SerializeField] public AudioClip coinPayoutSFX;
 
     [Header("AudioMixers")]
     [SerializeField] public AudioMixer musicMixer;

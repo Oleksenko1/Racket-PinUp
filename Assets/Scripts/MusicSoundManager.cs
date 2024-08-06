@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Audio;
 
 public class MusicSoundManager : MonoBehaviour
 {
@@ -17,6 +18,9 @@ public class MusicSoundManager : MonoBehaviour
     private AudioSource musicSource;
     private AudioSource sfxSource;
     private AudioSource uiSource;
+
+    [SerializeField] private AudioMixerSnapshot silentMusicSnapshot;
+    [SerializeField] private AudioMixerSnapshot fullMusicSnapshot;
 
     private float musicVolume;
     private float sfxVolume;
@@ -115,5 +119,13 @@ public class MusicSoundManager : MonoBehaviour
         PlayerPrefs.SetInt(PlayerPrefsVariables.Vars.musicPlayIsOn.ToString(), toggleMusic ? 1 : 0);
 
         PlayMusic(currentMusic);
+    }
+    public void FadeOutMusic()
+    {
+        silentMusicSnapshot.TransitionTo(0.5f);
+    }
+    public void FadeInMusic()
+    {
+        fullMusicSnapshot.TransitionTo(0.5f);
     }
 }

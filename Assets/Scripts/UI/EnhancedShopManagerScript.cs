@@ -164,39 +164,9 @@ public class EnhancedShopManagerScript : MonoBehaviour
     }
     public void UpgradeItem(int i)
     {
-        //ShopItemSO.ItemType itemType = upgradeSO[i].itemType;
-
-
         PlayerPrefs.SetInt(upgradeSO[i].levelSaveName, PlayerPrefs.GetInt(upgradeSO[i].levelSaveName, 0) + 1);
 
         LoadCostsAndButtons(ItemClass.upgrade, i);
-        
-        //switch (itemType)
-        //{
-        //    case ShopItemSO.ItemType.RacketAccuracy:
-        //        PlayerPrefs.SetInt(upgradeSO[i].levelSaveName, PlayerPrefs.GetInt(upgradeSO[i].levelSaveName, 0) + 1);
-
-        //        LoadCostsAndButtons(ItemClass.upgrade, i);
-        //        break;
-
-        //    case ShopItemSO.ItemType.RacketSize:
-        //        PlayerPrefs.SetInt(upgradeSO[i].levelSaveName, PlayerPrefs.GetInt(upgradeSO[i].levelSaveName, 0) + 1);
-
-        //        LoadCostsAndButtons(ItemClass.upgrade, i);
-        //        break;
-
-        //    case ShopItemSO.ItemType.RacketSpeed:
-        //        PlayerPrefs.SetInt(upgradeSO[i].levelSaveName, PlayerPrefs.GetInt(upgradeSO[i].levelSaveName, 0) + 1);
-
-        //        LoadCostsAndButtons(ItemClass.upgrade, i);
-        //        break;
-
-        //    case ShopItemSO.ItemType.WallUpgrade:
-        //        PlayerPrefs.SetInt(upgradeSO[i].levelSaveName, PlayerPrefs.GetInt(upgradeSO[i].levelSaveName, 0) + 1);
-
-        //        LoadCostsAndButtons(ItemClass.upgrade, i);
-        //        break;
-        //}
     }
 
     private void InitUpgrades() // Initializing upgrade items in the shop

@@ -45,3 +45,12 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: GameVFX
+    uniqueID: 3578063075
+    locked: 0
+  - name: UI
+    uniqueID: 2436607839
+    locked: 0
+  - name: UIVfx
+    uniqueID: 3994646347
+    locked: 0

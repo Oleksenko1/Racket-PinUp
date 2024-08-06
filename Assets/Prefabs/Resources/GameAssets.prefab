@@ -46,11 +46,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   basicBall: {fileID: 6120525851246247305, guid: 6b07ea830a7e5b84ea66cdd6898fc6d6, type: 3}
   coinPopup: {fileID: 7815976817065068405, guid: 229354a48891f404582aba53332b99ca, type: 3}
+  hitParticle: {fileID: 447467731864417756, guid: 00e437cac4f528c46b7bce8fca5fcb95, type: 3}
   menuMusic: {fileID: 8300000, guid: 9e6bd062653e4734a9b7e7948e881eb6, type: 3}
   playingMusic: {fileID: 8300000, guid: 23a653371504c8240a57c7c362856f58, type: 3}
+  victoryMusic: {fileID: 8300000, guid: 7a2bd03a5e41284498d54a6468448f44, type: 3}
+  looseMusic: {fileID: 8300000, guid: 24e0cc7c83a2e2b4cabec6f998c2600b, type: 3}
   ballBounce: {fileID: 8300000, guid: 60a9cc470d193c242b04923766020f7d, type: 3}
   coinCollected: {fileID: 8300000, guid: fc40f6f0a8347ea4f9409db398225e8a, type: 3}
   racketHit: {fileID: 8300000, guid: 05d9b32bdb9711243ab20d157808e9a5, type: 3}
+  ballDie: {fileID: 8300000, guid: 0094ca7eab712894187c54dcfb559b8b, type: 3}
   basicButton: {fileID: 8300000, guid: 9a4edadbc47a9bc4f88372ae6fbe10de, type: 3}
   closeButton: {fileID: 8300000, guid: e7388b6779408c847a7a099a01007078, type: 3}
   playBtn: {fileID: 8300000, guid: f9400a85e88e2af44a3ec28226a13f40, type: 3}
@@ -58,6 +62,7 @@ MonoBehaviour:
   decline: {fileID: 8300000, guid: 445e0fe84da1c2649b855723f917e343, type: 3}
   itemBought: {fileID: 8300000, guid: 8ec96aea8e7d85d4f84ae92298b8215f, type: 3}
   tabSelected: {fileID: 8300000, guid: d5664bdf4a34ab444867c578049aafbe, type: 3}
+  coinPayoutSFX: {fileID: 8300000, guid: 02f8908cf06487f4796764f7d7cfca3a, type: 3}
   musicMixer: {fileID: 24100000, guid: 545f22fc800b42c49bfb715bb0d29bbc, type: 2}
   sfxMixer: {fileID: 24100000, guid: efa683defc3c6ec47add1a56395b6abb, type: 2}
   uiMixer: {fileID: 24100000, guid: 5d76d62a29bd2a2488167fdac8ce2881, type: 2}

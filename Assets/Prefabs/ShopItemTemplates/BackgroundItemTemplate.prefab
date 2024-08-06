@@ -295,8 +295,8 @@ RectTransform:
   m_GameObject: {fileID: 3725033775438149306}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 0.90000004, y: 0.90000004, z: 0.90000004}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 5510291836558312209}
   - {fileID: 3258560022058626974}
@@ -306,8 +306,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: 82.49, y: 0}
-  m_SizeDelta: {x: 164.97, y: 300}
+  m_AnchoredPosition: {x: 75, y: 0}
+  m_SizeDelta: {x: 164.96997, y: 300}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7631136409033941697
 CanvasRenderer:
@@ -361,6 +361,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemIndex: 0
   buyBtn: {fileID: 8376579846773057729}
+  playBtn: {fileID: 0}
+  sprite: {fileID: 0}
   titleText: {fileID: 1444977183893282060}
   descriptionTxt: {fileID: 0}
   costTxt: {fileID: 3843196242575471797}

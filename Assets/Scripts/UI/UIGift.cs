@@ -64,13 +64,10 @@ public class UIGift : MonoBehaviour
     {
         if (IsGiftAvailable())
         {
-            // Подарок доступен для сбора
             Debug.Log("Gift is available!");
-            // Здесь можно добавить логику для отображения подарка на экране
         }
         else
         {
-            // Подарок еще недоступен
             Debug.Log("Gift is not available yet.");
         }
     }
@@ -118,7 +115,7 @@ public class UIGift : MonoBehaviour
         while (true)
         {
             UpdateTimer();
-            yield return new WaitForSeconds(1); // Обновляем таймер каждую секунду
+            yield return new WaitForSeconds(1); // Updating timer every second
         }
     }
 

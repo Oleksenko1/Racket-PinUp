@@ -48,6 +48,8 @@ public class BallScript : MonoBehaviour
 
                 MusicSoundManager.Instance.PlaySFX(GameAssets.Instance.racketHit);
 
+                Instantiate(GameAssets.Instance.hitParticle, contactPoint, collision.transform.rotation);
+
                 break;
 
             case "ScorringWall":
@@ -66,6 +68,7 @@ public class BallScript : MonoBehaviour
     {
         Debug.Log("Ball died");
         CoinMultiplierManager.Instance.DecreaseMultiplier(1);
+        MusicSoundManager.Instance.PlaySFX(GameAssets.Instance.ballDie);
         Destroy(gameObject);
     }
     public int GetValue()
