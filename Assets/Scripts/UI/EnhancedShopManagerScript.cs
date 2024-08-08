@@ -51,7 +51,6 @@ public class EnhancedShopManagerScript : MonoBehaviour
 
     private void Awake()
     {
-
         coinsUI = transform.Find("CoinsAmount").GetComponent<TextMeshProUGUI>();
 
         upgradeSO = GameAssets.Instance.upgradeItemsList.list;
@@ -74,12 +73,19 @@ public class EnhancedShopManagerScript : MonoBehaviour
         InitMusics();
 
         OnShopClose += UpdateMusicItems;
-        UIShopTabs.OnTabChanged += UpdateMusicItems;
+        UIShopTabs.Instance.OnTabChanged += UpdateMusicItems;
 
         TotalCoinsManager.Instance.OnCoinsChanged += UpdateCoinsAmount;
         UpdateCoinsAmount(TotalCoinsManager.Instance.GetCoinsAmount());
 
-        gameObject.SetActive(false);
+        if(PlayerPrefs.GetInt(PlayerPrefsVariables.Vars.OpenShopOnStart.ToString(), 0) == 0)
+        {
+            gameObject.SetActive(false);
+        }
+        else
+        {
+            PlayerPrefs.SetInt(PlayerPrefsVariables.Vars.OpenShopOnStart.ToString(), 0);
+        }
     }
 
     private void UpdateCoinsAmount(int coins)

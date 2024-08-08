@@ -17,8 +17,6 @@ public class UIGameOverScreen : MonoBehaviour
     private TextMeshProUGUI winLabelTxt;
     private void Awake()
     {
-        
-
         Transform panel = transform.Find("panel");
 
         bestScoreText = panel.Find("bestWin");
@@ -36,6 +34,12 @@ public class UIGameOverScreen : MonoBehaviour
 
         panel.Find("homeBtn").GetComponent<Button>().onClick.AddListener(() =>
         {
+            GameSceneManager.Load(GameSceneManager.Scene.MainMenuScene);
+        });
+
+        panel.Find("shopBtn").GetComponent<Button>().onClick.AddListener(() =>
+        {
+            PlayerPrefs.SetInt(PlayerPrefsVariables.Vars.OpenShopOnStart.ToString(), 1);
             GameSceneManager.Load(GameSceneManager.Scene.MainMenuScene);
         });
 

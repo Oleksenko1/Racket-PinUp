@@ -21,6 +21,7 @@ public class GameAssets : MonoBehaviour
     [SerializeField] public Transform basicBall;
     [SerializeField] public Transform coinPopup;
     [SerializeField] public Transform hitParticle;
+    [SerializeField] public Transform dieParticle;
 
     [Header("Musics")]
     [SerializeField] public AudioClip menuMusic;

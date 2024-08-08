@@ -9,7 +9,8 @@ public static class GameSceneManager
     public enum Scene
     {
         GameScene,
-        MainMenuScene
+        MainMenuScene,
+        LoadingScreen
     }
     public static void Load(Scene scene)
     {

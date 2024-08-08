@@ -16,15 +16,18 @@ public class UIGift : MonoBehaviour
     private TextMeshProUGUI timerText;
     [SerializeField] private GameObject coinsAquiredWindow;
     private TextMeshProUGUI coinsAquiredText;
+    private Animator giftAnim;
 
     private Button openButton;
     private Image giftImage;
     private int nextGiftCoins;
+    private bool IsReady;
     private void Awake()
     {
         openButton = GetComponent<Button>();
         timerText = transform.Find("timerText").GetComponent<TextMeshProUGUI>();
         giftImage = GetComponent<Image>();
+        giftAnim = GetComponent<Animator>();
 
         giftImage.color = closedGift;        
 
@@ -58,6 +61,7 @@ public class UIGift : MonoBehaviour
         nextGiftCoins = coinsAmount[UnityEngine.Random.Range(0, coinsAmount.Length)];
         CheckGiftAvailability();
         StartCoroutine(UpdateTimerCoroutine());
+        IsReady = IsGiftAvailable();
     }
 
     void CheckGiftAvailability()
@@ -103,6 +107,8 @@ public class UIGift : MonoBehaviour
             CheckGiftAvailability();
 
             nextGiftCoins = coinsAmount[UnityEngine.Random.Range(0, coinsAmount.Length)];
+
+            UpdateTimer();
         }
         else
         {
@@ -133,23 +139,35 @@ public class UIGift : MonoBehaviour
                 giftImage.color = readyGift;
             }
             timerText.SetText("OPEN!");
+
+            if (IsReady == false)
+            {
+                IsReady = true;
+                giftAnim.SetBool("IsReady", IsReady);
+            }
         }
         else
         {
             TimeSpan timeRemaining = giftInterval - (DateTime.Now - lastGiftTime);
-            timerText.SetText( string.Format("{0:D2}:{1:D2}:{2:D2}",
+            timerText.SetText(string.Format("{0:D2}:{1:D2}:{2:D2}",
                                             timeRemaining.Hours,
                                             timeRemaining.Minutes,
                                             timeRemaining.Seconds));
 
-            if(openButton.IsInteractable() == true)
+            if (openButton.IsInteractable() == true)
             {
                 openButton.interactable = false;
             }
 
-            if(giftImage.color == readyGift)
+            if (giftImage.color == readyGift)
             {
                 giftImage.color = closedGift;
+            }
+
+            if (IsReady == true)
+            {
+                IsReady = false;
+                giftAnim.SetBool("IsReady", IsReady);
             }
         }
     }

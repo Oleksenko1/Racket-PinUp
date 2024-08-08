@@ -48,7 +48,7 @@ public class BallScript : MonoBehaviour
 
                 MusicSoundManager.Instance.PlaySFX(GameAssets.Instance.racketHit);
 
-                Instantiate(GameAssets.Instance.hitParticle, contactPoint, collision.transform.rotation);
+                Instantiate(GameAssets.Instance.hitParticle, (Vector3)contactPoint + Vector3.back, GameAssets.Instance.hitParticle.rotation);
 
                 break;
 
@@ -70,6 +70,7 @@ public class BallScript : MonoBehaviour
         CoinMultiplierManager.Instance.DecreaseMultiplier(1);
         MusicSoundManager.Instance.PlaySFX(GameAssets.Instance.ballDie);
         Destroy(gameObject);
+        Instantiate(GameAssets.Instance.dieParticle, transform.position, Quaternion.identity);
     }
     public int GetValue()
     {

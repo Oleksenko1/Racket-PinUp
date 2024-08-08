@@ -46,7 +46,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   basicBall: {fileID: 6120525851246247305, guid: 6b07ea830a7e5b84ea66cdd6898fc6d6, type: 3}
   coinPopup: {fileID: 7815976817065068405, guid: 229354a48891f404582aba53332b99ca, type: 3}
-  hitParticle: {fileID: 447467731864417756, guid: 00e437cac4f528c46b7bce8fca5fcb95, type: 3}
+  hitParticle: {fileID: 8953264713256607884, guid: 87ee7299dd44ed747af24dbb91bcd33b, type: 3}
+  dieParticle: {fileID: 5880797563126852495, guid: 265d3a5ba69981a4698ceabcedf368b0, type: 3}
   menuMusic: {fileID: 8300000, guid: 9e6bd062653e4734a9b7e7948e881eb6, type: 3}
   playingMusic: {fileID: 8300000, guid: 23a653371504c8240a57c7c362856f58, type: 3}
   victoryMusic: {fileID: 8300000, guid: 7a2bd03a5e41284498d54a6468448f44, type: 3}

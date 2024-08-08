@@ -9,6 +9,8 @@ public static class PlayerPrefsVariables
         SelectedBackGround,
         SelectedMusic,
 
+        OpenShopOnStart,
+
         HighestWin,
         TotalCoins,
 

@@ -5,6 +5,8 @@ using UnityEngine.UI;
 using TMPro;
 public class UIShopTabs : MonoBehaviour
 {
+    public static UIShopTabs Instance;
+
     [SerializeField] private Color selectedColor;
     [SerializeField] private Color deselectedColor;
     [Tooltip("0 - Upgrades, 1 - Background, 2 - Music")]
@@ -18,12 +20,14 @@ public class UIShopTabs : MonoBehaviour
     [SerializeField]
     [TextArea] private string musicDesc;
 
-    public static Action OnTabChanged;
+    public Action OnTabChanged;
 
     private List<Button> tabButtons = new List<Button>();
     private int selectedTab = 0;
     private void Awake()
     {
+        Instance = this;
+
         Button btn = transform.Find("upgradeBtn").GetComponent<Button>();
         tabButtons.Add(btn);
         btn.onClick.AddListener(() =>

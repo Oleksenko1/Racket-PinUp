@@ -14,7 +14,7 @@ public class RacketController : MonoBehaviour
     [SerializeField] private float racketSize; // Size of a racket
     [Range(0, 1)]
     [SerializeField] private float correctionAmount; // How good is racket hits are going to be. 0 - no help, 1 - every shot is perfect
-    [SerializeField] private float racketOffset;
+    //[SerializeField] private float racketOffset;
     private Rigidbody2D rb;
     private Vector2 targetPosition;
     private bool isMoving = false;
@@ -74,7 +74,7 @@ public class RacketController : MonoBehaviour
 
     public void SetTargetPosition(Vector2 targetPosition)
     {
-        targetPosition.y += racketOffset;
+        //targetPosition.y += racketOffset;
         this.targetPosition = targetPosition;
         isMoving = true;
     }
