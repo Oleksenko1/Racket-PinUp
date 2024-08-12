@@ -12,10 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34448736d64a910408e1d6fb06cae010, type: 3}
   m_Name: MysteriousBlueBG
   m_EditorClassIdentifier: 
-  shopIcon: {fileID: 21300000, guid: 1fda8ea6ddc97c448b85bff143b59aa9, type: 3}
-  itemType: 3
-  title: Mysterious Blue
+  shopIcon: {fileID: 21300000, guid: 8318da6bd0732b940becb3b9efe0adb5, type: 3}
+  itemType: 4
+  title: Sharp Gold
   description: 
   levelSaveName: MysteriousBlueOwned
   levelsCost: c8000000
   levelUpgrades: []
+  music: {fileID: 0}

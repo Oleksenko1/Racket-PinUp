@@ -139,7 +139,6 @@ public class UIGift : MonoBehaviour
                 giftImage.color = readyGift;
             }
             timerText.SetText("OPEN!");
-
             if (IsReady == false)
             {
                 IsReady = true;
@@ -153,6 +152,7 @@ public class UIGift : MonoBehaviour
                                             timeRemaining.Hours,
                                             timeRemaining.Minutes,
                                             timeRemaining.Seconds));
+
 
             if (openButton.IsInteractable() == true)
             {

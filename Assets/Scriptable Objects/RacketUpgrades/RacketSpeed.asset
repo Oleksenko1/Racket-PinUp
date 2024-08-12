@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34448736d64a910408e1d6fb06cae010, type: 3}
   m_Name: RacketSpeed
   m_EditorClassIdentifier: 
-  shopIcon: {fileID: 21300000, guid: a123a0345c587af459542e189e91c140, type: 3}
+  shopIcon: {fileID: 21300000, guid: 4863f91626259bd44b6811a5a6eee6ab, type: 3}
   itemType: 2
   title: Racket speed
   description: Increase racket movement speed
@@ -24,3 +24,4 @@ MonoBehaviour:
   - 11
   - 13
   - 15
+  music: {fileID: 0}

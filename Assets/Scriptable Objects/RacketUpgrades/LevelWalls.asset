@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34448736d64a910408e1d6fb06cae010, type: 3}
   m_Name: LevelWalls
   m_EditorClassIdentifier: 
-  shopIcon: {fileID: 21300000, guid: a78d4f9197c7f3f43a76bc8ca444a77a, type: 3}
+  shopIcon: {fileID: 21300000, guid: 8b8d578267c073b419d37f90b63300be, type: 3}
   itemType: 3
   title: Walls
   description: Unlock walls that prevents balls from going out of the bounds

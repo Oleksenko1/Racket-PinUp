@@ -12,10 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34448736d64a910408e1d6fb06cae010, type: 3}
   m_Name: CosmicStripesBG
   m_EditorClassIdentifier: 
-  shopIcon: {fileID: 21300000, guid: ad9db9ab7d545fc4d8973d58855d76da, type: 3}
-  itemType: 3
-  title: Cosmic Stripes
+  shopIcon: {fileID: 21300000, guid: 3d2449695916d74409c748ae0e8dae2c, type: 3}
+  itemType: 4
+  title: Shine
   description: 
   levelSaveName: CosmicStripesOwned
   levelsCost: c8000000
   levelUpgrades: []
+  music: {fileID: 0}

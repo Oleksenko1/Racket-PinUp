@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34448736d64a910408e1d6fb06cae010, type: 3}
   m_Name: RacketSize
   m_EditorClassIdentifier: 
-  shopIcon: {fileID: 21300000, guid: 62b26d82cf975714fa3f3418d60bbe06, type: 3}
+  shopIcon: {fileID: 21300000, guid: 62b69501a5f9ec749b1ccef6b9204777, type: 3}
   itemType: 1
   title: Racket size
   description: Increase size of your racket
@@ -24,3 +24,4 @@ MonoBehaviour:
   - 1.37
   - 1.44
   - 1.5
+  music: {fileID: 0}

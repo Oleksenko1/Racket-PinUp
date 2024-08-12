@@ -77,8 +77,10 @@ public class UIShopTabs : MonoBehaviour
         foreach (Button button in tabButtons)
         {
             button.GetComponent<Image>().color = deselectedColor;
+            button.transform.Find("sprite").GetComponent<Image>().color = selectedColor;
         }
         tabButtons[i].GetComponent<Image>().color = selectedColor;
+        tabButtons[i].transform.Find("sprite").GetComponent<Image>().color = deselectedColor;
 
         foreach (GameObject go in shopPages)
         {

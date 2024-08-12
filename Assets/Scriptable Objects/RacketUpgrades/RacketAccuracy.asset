@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34448736d64a910408e1d6fb06cae010, type: 3}
   m_Name: RacketAccuracy
   m_EditorClassIdentifier: 
-  shopIcon: {fileID: 21300000, guid: 1ac9860fc6724f34c9822f7da564fff6, type: 3}
+  shopIcon: {fileID: 21300000, guid: 82a8f6785474c9444b6df9a3b0d237db, type: 3}
   itemType: 0
   title: Racket Accuracy
   description: Increase accuracy of your racket
@@ -24,3 +24,4 @@ MonoBehaviour:
   - 0.4
   - 0.5
   - 0.6
+  music: {fileID: 0}

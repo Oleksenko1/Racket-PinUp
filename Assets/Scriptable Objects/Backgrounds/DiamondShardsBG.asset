@@ -12,10 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34448736d64a910408e1d6fb06cae010, type: 3}
   m_Name: DiamondShardsBG
   m_EditorClassIdentifier: 
-  shopIcon: {fileID: 21300000, guid: a0087723f2f961d468a106d78145d62f, type: 3}
-  itemType: 3
-  title: Diamond Shards
+  shopIcon: {fileID: 21300000, guid: f7c8b776025bae94dacddb46c4fed458, type: 3}
+  itemType: 4
+  title: Shards
   description: 
   levelSaveName: DiamondShardsOwned
   levelsCost: c8000000
   levelUpgrades: []
+  music: {fileID: 0}

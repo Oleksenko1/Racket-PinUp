@@ -16,6 +16,7 @@ public class EnhancedShopManagerScript : MonoBehaviour
     };
 
     [SerializeField] private Color selectColor;
+    [SerializeField] private Color textSelectColor;
 
     public event Action OnShopClose;
 
@@ -104,6 +105,7 @@ public class EnhancedShopManagerScript : MonoBehaviour
                 if (upgradeSO[i].levelsCost.Length <= PlayerPrefs.GetInt(upgradeSO[i].levelSaveName, 0)) // If level is maxed - removes ability to upgrade further
                 {
                     upgradesShopTemplatesList[i].buyBtn.GetComponent<Image>().color = selectColor;
+                    upgradesShopTemplatesList[i].btnTxt.color = textSelectColor;
                     upgradesShopTemplatesList[i].btnTxt.text = "Max lvl";
                     upgradesShopTemplatesList[i].buyBtn.interactable = false;
                     upgradesShopTemplatesList[i].costTxt.text = "";
@@ -120,12 +122,15 @@ public class EnhancedShopManagerScript : MonoBehaviour
                     if (selectedBG == i) // If background is selected
                     {
                         backgroundsShopTemplatesList[i].btnTxt.text = "Selected";
+                        backgroundsShopTemplatesList[i].buyBtn.GetComponent<Image>().color = selectColor;
+                        backgroundsShopTemplatesList[i].btnTxt.color = textSelectColor;
                         backgroundsShopTemplatesList[i].costTxt.text = "";
                         backgroundsShopTemplatesList[i].buyBtn.interactable = false;
                     }
                     else
                     {
                         backgroundsShopTemplatesList[i].btnTxt.text = "Select";
+                        backgroundsShopTemplatesList[i].btnTxt.color = textSelectColor;
                         backgroundsShopTemplatesList[i].costTxt.text = "";
                         backgroundsShopTemplatesList[i].buyBtn.interactable = true;
                     }
@@ -152,12 +157,15 @@ public class EnhancedShopManagerScript : MonoBehaviour
                     if (selectedMusic == i) // If music is selected
                     {
                         musicsShopTemplatesList[i].btnTxt.text = "Selected";
+                        musicsShopTemplatesList[i].buyBtn.GetComponent<Image>().color = selectColor;
+                        musicsShopTemplatesList[i].btnTxt.color = textSelectColor;
                         musicsShopTemplatesList[i].costTxt.text = "";
                         musicsShopTemplatesList[i].buyBtn.interactable = false;
                     }
                     else
                     {
                         musicsShopTemplatesList[i].btnTxt.text = "Select";
+                        musicsShopTemplatesList[i].btnTxt.color = textSelectColor;
                         musicsShopTemplatesList[i].costTxt.text = "";
                         musicsShopTemplatesList[i].buyBtn.interactable = true;
                     }
