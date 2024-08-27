@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34448736d64a910408e1d6fb06cae010, type: 3}
   m_Name: GeometryBG
   m_EditorClassIdentifier: 
-  shopIcon: {fileID: 21300000, guid: fab8a62086c64f64681b62ee30c4f2ba, type: 3}
+  shopIcon: {fileID: 21300000, guid: 813e3dbc876d24a408a70d721a95579e, type: 3}
   itemType: 4
-  title: Work Stripes
+  title: Cosmic Emerald
   description: 
   levelSaveName: GeometryOwned
   levelsCost: c8000000

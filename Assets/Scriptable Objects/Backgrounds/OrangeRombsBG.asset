@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34448736d64a910408e1d6fb06cae010, type: 3}
   m_Name: OrangeRombsBG
   m_EditorClassIdentifier: 
-  shopIcon: {fileID: 21300000, guid: f087d2ebcb354cc429a1956fa11079fa, type: 3}
+  shopIcon: {fileID: 21300000, guid: fb1f936be5687144ead7efa71b2cdd94, type: 3}
   itemType: 4
-  title: Orange Rombs
+  title: Classic Green
   description: 
   levelSaveName: OrangeRombsOwned
   levelsCost: c8000000

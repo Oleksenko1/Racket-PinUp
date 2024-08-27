@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34448736d64a910408e1d6fb06cae010, type: 3}
   m_Name: SandstromBG
   m_EditorClassIdentifier: 
-  shopIcon: {fileID: 21300000, guid: 262b04348c3a03043954a7275e7548ca, type: 3}
+  shopIcon: {fileID: 21300000, guid: daf5ae6e6f4e82b45b46b42519202468, type: 3}
   itemType: 4
   title: Sandstrom
   description: 

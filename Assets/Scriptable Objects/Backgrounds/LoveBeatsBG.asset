@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34448736d64a910408e1d6fb06cae010, type: 3}
   m_Name: LoveBeatsBG
   m_EditorClassIdentifier: 
-  shopIcon: {fileID: 21300000, guid: 14d12c6c476ecaf4ea82b4af7d939b44, type: 3}
+  shopIcon: {fileID: 21300000, guid: f554100314fd1a04e98cadbc31c8d76d, type: 3}
   itemType: 4
-  title: Cosmic Forms
+  title: Laser Show
   description: 
   levelSaveName: LoveBeatsOwned
   levelsCost: c8000000

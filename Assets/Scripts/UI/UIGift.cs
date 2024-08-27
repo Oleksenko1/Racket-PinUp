@@ -10,7 +10,7 @@ public class UIGift : MonoBehaviour
     [SerializeField] private int[] coinsAmount;
     [SerializeField] private Color readyGift;
     [SerializeField] private Color closedGift;
-    private TimeSpan giftInterval = TimeSpan.FromHours(8);
+    private TimeSpan giftInterval = TimeSpan.FromSeconds(20);
     private DateTime lastGiftTime;
 
     private TextMeshProUGUI timerText;

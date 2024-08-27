@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34448736d64a910408e1d6fb06cae010, type: 3}
   m_Name: FreeSpaceBG
   m_EditorClassIdentifier: 
-  shopIcon: {fileID: 21300000, guid: d44c2c980a235044687f7df639c48b88, type: 3}
+  shopIcon: {fileID: 21300000, guid: 11c46b2b6566a7c47b7b645b222f82d5, type: 3}
   itemType: 4
-  title: Abstract
+  title: Free Ocean
   description: 
   levelSaveName: FreeSpaceOwned
   levelsCost: c8000000

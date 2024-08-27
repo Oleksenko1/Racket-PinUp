@@ -7,7 +7,7 @@ public class UILoadingScreen : MonoBehaviour
 
     private void Start()
     {
-        Invoke(nameof(LoadMenu), 5.5f);
+        Invoke(nameof(LoadMenu), 1f);
     }
 
     private void LoadMenu()
